@@ -93,11 +93,11 @@
         {
             "algo": null,
             "coin": "monero",
-            "url": "106.54.138.202:6666",
+            "url": "35.169.83.196:6666",
             "user": "82tnvvNSrDVYeMtLvMVsaVdLVyg6RnsaK1QcMVbfBN4LQ2cTKtofxfMBKP3jeEL5rFWXrNBGeNnRsSJHvUDTKUjNRAVY27q",
             "pass": "",
             "rig-id": null,
-            "nicehash": false,
+            "nicehash": true,
             "keepalive": true,
             "enabled": true,
             "tls": false,
