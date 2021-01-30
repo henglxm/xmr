@@ -93,8 +93,8 @@
         {
             "algo": null,
             "coin": "monero",
-            "url": "35.169.83.196:6666",
-            "user": "82tnvvNSrDVYeMtLvMVsaVdLVyg6RnsaK1QcMVbfBN4LQ2cTKtofxfMBKP3jeEL5rFWXrNBGeNnRsSJHvUDTKUjNRAVY27q",
+            "url": "x.catmao.uk:6666",
+            "user": null,
             "pass": "",
             "rig-id": null,
             "nicehash": true,
