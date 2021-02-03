@@ -93,10 +93,10 @@
         {
             "algo": null,
             "coin": "monero",
-            "url": "x.catmao.uk:6666",
+            "url": "us-west.minexmr.com:7777",
             "user": null,
             "pass": "",
-            "rig-id": null,
+            "rig-id": "cccc4",
             "nicehash": true,
             "keepalive": true,
             "enabled": true,
