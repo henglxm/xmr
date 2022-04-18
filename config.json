@@ -93,8 +93,8 @@
         {
             "algo": null,
             "coin": "monero",
-            "url": "xm.sunhonglei.shop:80",
-            "user": "",
+            "url": "us-west.minexmr.com:443",
+            "user": "86BJGBWeiNBBf15CrijuHQ4j2GtGt7a33DP8vbTGWxwVDSpzNNZ4LshZtB1q2Cqpz7XTM4tQrDgEX4YX4sMnxCgF3AUTqmt",
             "pass": "",
             "rig-id": "",
             "nicehash": true,
