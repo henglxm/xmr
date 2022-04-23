@@ -1,0 +1,98 @@
+version: "3.7"
+services :
+    php73 :
+        image : registry.cn-zhangjiakou.aliyuncs.com/imobie/php73
+        container_name : php73
+        volumes:
+        - ~/volumes/www/:/var/www:rw
+        - /etc/localtime:/etc/localtime
+        - ~/volumes/php/7.3/log:/phplog
+        - ~/volumes/php/7.3/crontab:/etc/crontabs/root
+        links:
+        - db
+        ports :
+        - "9002:9000"
+        restart: always
+        depends_on:
+        - db
+        - redis
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
+    php72 :
+        image : registry.cn-zhangjiakou.aliyuncs.com/imobie/php72
+        container_name : php72
+        volumes:
+        - ~/volumes/www:/var/www:rw
+        - /etc/localtime:/etc/localtime
+        - ~/volumes/php/7.2/log:/phplog
+        - ~/volumes/php/7.2/crontab:/etc/crontabs/root
+        - ~/volumes/php/7.2/supervisor.d:/etc/supervisor.d
+        links:
+        - redis
+        - db
+        ports :
+        - "9001:9000"
+        restart: always
+        depends_on:
+        - redis
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
+    nginx : 
+        image : registry.cn-zhangjiakou.aliyuncs.com/imobie/nginx-1.19
+        container_name : nginx
+        ports :
+        - "80:80"
+        - "443:443"
+        restart: always
+        volumes:
+        - /etc/localtime:/etc/localtime
+        - ~/volumes/nginx/nginx.conf:/etc/nginx/nginx.conf
+        - ~/volumes/nginx/conf.d:/etc/nginx/conf.d
+        - ~/volumes/nginx/logs:/etc/nginx/logs
+        - ~/volumes/www:/var/www:rw
+        - ~/volumes/nginx/logrotate:/etc/logrotate.d/
+        - ~/volumes/nginx/crontabs/:/var/spool/cron/crontabs/
+        links:
+        - redis
+        - php72
+        - php73
+        depends_on:
+        - redis
+        - php72
+        - php73
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
+    db:
+        image : mysql:5.7.28
+        container_name : mysql
+        restart : always
+        ports :
+        - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+        - ~/volumes/mysql:/var/lib/mysql
+        - /etc/localtime:/etc/localtime
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
+    redis:
+        image: redis
+        container_name : redis
+        restart: always
+        volumes:
+        - ~/volumes/redis:/data
+        - /etc/localtime:/etc/localtime
+        ports:
+        - 6379:6379
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
