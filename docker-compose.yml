@@ -7,35 +7,11 @@ services :
         - ~/volumes/www/:/var/www:rw
         - /etc/localtime:/etc/localtime
         - ~/volumes/php/7.3/log:/phplog
-        - ~/volumes/php/7.3/crontab:/etc/crontabs/root
         links:
         - db
-        ports :
-        - "9002:9000"
         restart: always
         depends_on:
         - db
-        - redis
-        logging:
-            driver: "json-file"
-            options:
-                max-size: "5m"
-    php72 :
-        image : registry.cn-zhangjiakou.aliyuncs.com/imobie/php72
-        container_name : php72
-        volumes:
-        - ~/volumes/www:/var/www:rw
-        - /etc/localtime:/etc/localtime
-        - ~/volumes/php/7.2/log:/phplog
-        - ~/volumes/php/7.2/crontab:/etc/crontabs/root
-        - ~/volumes/php/7.2/supervisor.d:/etc/supervisor.d
-        links:
-        - redis
-        - db
-        ports :
-        - "9001:9000"
-        restart: always
-        depends_on:
         - redis
         logging:
             driver: "json-file"
@@ -50,7 +26,6 @@ services :
         restart: always
         volumes:
         - /etc/localtime:/etc/localtime
-        - ~/volumes/nginx/nginx.conf:/etc/nginx/nginx.conf
         - ~/volumes/nginx/conf.d:/etc/nginx/conf.d
         - ~/volumes/nginx/logs:/etc/nginx/logs
         - ~/volumes/www:/var/www:rw
@@ -58,11 +33,9 @@ services :
         - ~/volumes/nginx/crontabs/:/var/spool/cron/crontabs/
         links:
         - redis
-        - php72
         - php73
         depends_on:
         - redis
-        - php72
         - php73
         logging:
             driver: "json-file"
@@ -75,7 +48,7 @@ services :
         ports :
         - "3306:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: henglxm123!
         volumes:
         - ~/volumes/mysql:/var/lib/mysql
         - /etc/localtime:/etc/localtime
