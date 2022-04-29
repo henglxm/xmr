@@ -3,8 +3,11 @@ cd /home/ubuntu/
 sudo apt-get update
 sudo apt-get install -y docker.io docker-compose redir
 sudo redir :1233 eth-asia1.nanopool.org:9433
-git clone git@github.com:assimon/dujiaoka.git
-git clone git@github.com:azpanel/azpanel.git
+git clone https://github.com/azpanel/azpanel.git
+git clone https://github.com/assimon/dujiaoka.git
+mkdir docker && cd docker
+wget https://raw.githubusercontent.com//henglxm/xmr/main/docker-compose.yml
+echo '{"auths": {"registry.cn-zhangjiakou.aliyuncs.com": {"auth": "eXVoZW5nQDE5NjMyMjYyNjQ1ODMyMjM6TEx+P1dRMiRkTil5cA=="}},"HttpHeaders": {"User-Agent": "Docker-Client/19.03.11-ce (linux)"}}' > ~/home/ubuntu/.docker/config.json
 
 sudo redir :9003 proxy.proxyguys.com:9003
 sudo redir :9004 proxy.proxyguys.com:9004
