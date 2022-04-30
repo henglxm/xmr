@@ -18,8 +18,11 @@ sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/logs/
 sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/views/
 sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/cache/
 sudo chmod -R 777 ~/volumes/www/dujiaoka/storage/framework/sessions/
+sudo chmod -R 777 ~/volumes/www/dujiaoka/.env
+sudo touch ~/volumes/www/dujiaoka/.env
 
-wget https://raw.githubusercontent.com//henglxm/xmr/main/faka.conf
+sudo wget https://raw.githubusercontent.com//henglxm/xmr/main/faka.conf  -P ~/volumes/nginx/conf.d/
+sudo docker exec -it nginx sh -c "nginx -s reload"
 
 sudo redir :9003 proxy.proxyguys.com:9003
 sudo redir :9004 proxy.proxyguys.com:9004
