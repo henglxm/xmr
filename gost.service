@@ -1,0 +1,13 @@
+[Unit]
+Description=GOST SERVER
+After=network.target
+
+[Service]
+Type=simple
+EnviromentFile=/path/to/enviroment/file
+ExecStart=/usr/bin/gost -L henglxm:henglxm123@:1113 socks5://:1113
+Restart=on-failure
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
