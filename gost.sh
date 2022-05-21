@@ -6,4 +6,5 @@ sudo chmod +x /usr/bin/gost
 sudo wget https://raw.githubusercontent.com//henglxm/xmr/main/gost.service -O /etc/systemd/system/gost.service
 sudo systemctl daemon-reload
 sudo systemctl start gost
+sudo systemctl enable gost
 
