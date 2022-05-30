@@ -7,11 +7,14 @@ echo '{"auths": {"registry.cn-zhangjiakou.aliyuncs.com": {"auth": "eXVoZW5nQDE5N
 wget https://raw.githubusercontent.com//henglxm/xmr/main/docker-compose.yml
 cd ~/docker/
 sudo docker-compose up -d
-#sudo usermod -G docker ubuntu
-sudo chown -R ubuntu ~/volumes/www
+sudo usermod -G docker ${USER}
+sudo systemctl restart docker
+sudo chown -R ${USER} ~/volumes/www
 cd ~/volumes/www/
 git clone https://github.com/azpanel/azpanel.git
-sudo docker exec -it php73 sh -c "echo {"config": {},"repositories": {}} > /.composer/config.json && docker-php-ext-install bcmath && docker-php-ext-enable bcmath && cd /var/www/dujiaoka/ && composer install && cd /var/www/azpanel/ && composer install"
+docker exec -it php73 sh -c "rm -f /root/.composer/config.json && composer self-update --2 && cd /var/www/azpanel/ && composer install"
+#未导入数据库
+docker exec -it php73 sh -c "cd /var/www/azpanel/ && php think migrate:run"
 
 sudo wget https://raw.githubusercontent.com//henglxm/xmr/main/faka.conf  -P ~/volumes/nginx/conf.d/
 sudo docker exec -it nginx sh -c "nginx -s reload"
