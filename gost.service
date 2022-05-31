@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/gost -L henglxm:henglxm@:1113 socks5://:1113
+ExecStart=/usr/bin/gost -L hyzs718:hyzs718@:1788 socks5://:1788
 Restart=on-failure
 RestartSec=42s
 
