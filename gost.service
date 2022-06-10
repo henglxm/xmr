@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-limitDATA=102400
 ExecStart=/usr/bin/gost -L henglxm:henglxm@:1113 socks5://:1113
+limitDATA=102400
 Restart=on-failure
 RestartSec=42s
 
